@@ -4,26 +4,26 @@ node{
  }
   def mvnHome = tool 'Apache_maven'
  stage('Build'){
-      bat "${mvnHome}/bin/mvn clean install" 
+      sh "${mvnHome}/bin/mvn clean install" 
   }
   stage('CodeQualityCheck'){
-      bat "${mvnHome}/bin/mvn clean sonar:sonar" 
+      sh "${mvnHome}/bin/mvn clean sonar:sonar" 
   }
   stage('UploadArtifacts'){
-      bat "${mvnHome}/bin/mvn clean deploy" 
+      sh "${mvnHome}/bin/mvn clean deploy" 
   }
   stage('DeployApplication'){
      sshagent(['chefid']) {
-      bat 'ssh -o StrictHostKeyChecking=no -l ubuntu 172.16.151.77 uname -a'
+      sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 172.16.151.77 uname -a'
      }
   }
  stage('Run Selenium Test'){
     dir ("D:\\PROJECT_INFO\\DEVOPS\\selenium_project_bat_file") { 
-        bat 'Selenium.bat' 
+        sh 'Selenium.bat' 
      } 
   }
   stage('Performane Tests'){
-                bat '''D:
+                sh '''D:
 				cd D:\\Jmeeter\\apache-jmeter-3.1\\bin
 	            jmeter -n -t D:\\Jmeeter\\apache-jmeter-3.1\\extras\\Test.jmx -l D:\\Jmeeter\\demo-report.jtl'''
               
