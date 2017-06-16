@@ -60,15 +60,13 @@
 	</build>
 	  <properties>
             <project.scm.id>git</project.scm.id>
-         </properties>
-	<!--  
+         </properties> 
 	<scm>
-		<url>https://github.com/NagireddyGuduru/client-demo-project</url>
-		<connection>scm:git:https://github.com/NagireddyGuduru/client-demo-project.git</connection>
-		<developerConnection>scm:git:https://github.com/NagireddyGuduru/client-demo-project.git</developerConnection>
+		<url>https://github.com/jyoshnavasu/client-demo-project.git</url>
+		<connection>scm:git:https://github.com/jyoshnavasu/client-demo-project.git</connection>
+		<developerConnection>scm:git:https://github.com/jyoshnavasu/client-demo-project.git</developerConnection>
 	    <tag>HEAD</tag>
   </scm>
--->
 	<profiles>
 	  <profile>
       <id>coverage-per-test</id>
